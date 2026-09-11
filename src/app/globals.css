@@ -1,0 +1,388 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/* Design tokens                                                              */
+/* -------------------------------------------------------------------------- */
+
+@theme {
+  --color-background: #efedeb;
+  --color-nav: #f9f8f7;
+  --color-panel: #f7f7f4;
+  --color-paper: #ffffff;
+  --color-ink: #1e1e1e;
+  --color-dark: #1a1716;
+  --color-dark-raised: #242120;
+  --color-muted: #74706d;
+  --color-line: rgba(30, 30, 30, 0.15);
+  --color-line-soft: rgba(30, 30, 30, 0.08);
+  --color-dark-line: rgba(255, 255, 255, 0.12);
+  --color-orange: #fe4c00;
+
+  --font-sans: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-swift: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-panel: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Base                                                                       */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+  :root {
+    --page-x: 18px;
+    --header-h: 60px;
+    color-scheme: light;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --page-x: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --page-x: 40px;
+    }
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 8px);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* `clip` rather than `hidden`: it prevents sideways scrolling without
+       creating a scroll container, which would break position: sticky. */
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  ::selection {
+    background: var(--color-orange);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: #ff7a3d;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 400;
+    letter-spacing: -0.03em;
+  }
+
+  button {
+    font: inherit;
+    letter-spacing: inherit;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Components — every rule here can still be overridden by a utility class     */
+/* -------------------------------------------------------------------------- */
+
+@layer components {
+  /* Page gutters ---------------------------------------------------------- */
+
+  .px-page {
+    padding-left: var(--page-x);
+    padding-right: var(--page-x);
+  }
+
+  /* Bleeds a strip to the viewport edge below the lg breakpoint only. */
+  .bleed-until-lg {
+    margin-left: calc(var(--page-x) * -1);
+    margin-right: calc(var(--page-x) * -1);
+    padding-left: var(--page-x);
+    padding-right: var(--page-x);
+  }
+
+  @media (min-width: 1024px) {
+    .bleed-until-lg {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  /* Typography scale ------------------------------------------------------ */
+
+  .type-hero {
+    font-size: 36px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .type-hero {
+      font-size: 42px;
+      line-height: 1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .type-hero {
+      font-size: 46px;
+      line-height: 0.99;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .type-hero {
+      font-size: 64px;
+      line-height: 0.98;
+    }
+  }
+
+  @media (min-width: 1700px) {
+    .type-hero {
+      font-size: 72px;
+    }
+  }
+
+  .type-section {
+    font-size: 38px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  @media (min-width: 768px) {
+    .type-section {
+      font-size: 44px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .type-section {
+      font-size: 56px;
+      line-height: 1;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .type-section {
+      font-size: 68px;
+    }
+  }
+
+  .type-label {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  @media (min-width: 1024px) {
+    .type-label {
+      font-size: 13px;
+    }
+  }
+
+  .type-body {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.005em;
+  }
+
+  /* Controls -------------------------------------------------------------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding-inline: 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    border: 1px solid transparent;
+    text-align: center;
+    transition:
+      background-color 180ms var(--ease-swift),
+      color 180ms var(--ease-swift),
+      border-color 180ms var(--ease-swift),
+      transform 120ms var(--ease-swift);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-sm {
+    min-height: 36px;
+    padding-inline: 14px;
+    font-size: 13px;
+  }
+
+  .btn-orange {
+    background-color: var(--color-orange);
+    color: #fff;
+  }
+
+  .btn-orange:hover {
+    background-color: #e64400;
+  }
+
+  .btn-ink {
+    background-color: var(--color-ink);
+    color: #fff;
+  }
+
+  .btn-ink:hover {
+    background-color: #000;
+  }
+
+  .btn-paper {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .btn-paper:hover {
+    background-color: #ece9e6;
+  }
+
+  .btn-outline {
+    border-color: var(--color-line);
+    color: var(--color-ink);
+    background-color: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: rgba(30, 30, 30, 0.05);
+    border-color: rgba(30, 30, 30, 0.3);
+  }
+
+  /* Marquee --------------------------------------------------------------- */
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: trust-slide 45s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee-viewport:hover .marquee-track,
+  .marquee-viewport:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Sticky problem sequence ----------------------------------------------- */
+
+  .problem-track {
+    height: 380vh;
+  }
+
+  .problem-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  /* Orange node pulse used by the workspace illustrations ------------------ */
+
+  .node-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: node-pulse 5.5s var(--ease-swift) infinite;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Keyframes                                                                  */
+/* -------------------------------------------------------------------------- */
+
+@keyframes trust-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  72%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  82% {
+    opacity: 1;
+    transform: scale(1.45);
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+/* Scroll lock applied while the video modal or mobile menu owns the viewport. */
+body[data-scroll-locked="true"] {
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reduced motion                                                             */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* No pinned scrub: the statement and its panels are simply present. */
+  .problem-track {
+    height: auto;
+  }
+
+  .problem-stage {
+    position: static;
+    height: auto;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
