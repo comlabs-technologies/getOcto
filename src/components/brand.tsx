@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { media } from "@/lib/media";
 
 /**
  * Remote SVG wordmark with a typeset fallback. The SVGs are served from
@@ -47,9 +46,9 @@ export function LogoMark({
 }
 
 /**
- * Brand lockup used in the header and footer. The wordmark image itself is
- * left as-is for the separate visual-branding pass; only the accessible name
- * and the typeset fallback carry the Octo name.
+ * Octo wordmark lockup. Drawn from the mark plus live type rather than a
+ * bitmap or remote SVG, so it stays crisp at any size and picks up the page's
+ * own typeface and colour tokens.
  */
 export function BrandLogo({
   className,
@@ -58,37 +57,26 @@ export function BrandLogo({
   className?: string;
   tone?: "ink" | "paper";
 }) {
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <span
-        className={`inline-flex items-center gap-2 text-[17px] tracking-[-0.03em] ${
-          tone === "paper" ? "text-white" : "text-ink"
-        } ${className ?? ""}`}
-      >
-        <RabbitMark className="h-[18px] w-[18px]" />
-        Octo
-      </span>
-    );
-  }
-
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- remote SVG, must not pass through the image optimizer
-    <img
-      src={media.rulebaseLogo}
-      alt="Octo"
-      width={108}
-      height={20}
-      decoding="async"
-      onError={() => setFailed(true)}
-      className={`h-[20px] w-auto ${tone === "paper" ? "brightness-0 invert" : ""} ${className ?? ""}`}
-    />
+    <span
+      className={`inline-flex items-center gap-[7px] ${
+        tone === "paper" ? "text-white" : "text-ink"
+      } ${className ?? ""}`}
+    >
+      <OctoMark className="h-[19px] w-[19px] shrink-0 text-orange" />
+      <span className="text-[17px] leading-none tracking-[-0.03em]">Octo</span>
+    </span>
   );
 }
 
-/** Geometric rabbit-style mark used on the solid tile in the integration grid. */
-export function RabbitMark({ className }: { className?: string }) {
+/**
+ * The Octo mark: a domed mantle with two eyes and four tapering tentacles,
+ * drawn as one evenodd path — mantle, four tentacles and two eyes each a
+ * closed subpath — so the eyes stay knocked out on any background and
+ * the whole glyph inherits `currentColor`. Sized on a 24-unit grid with the
+ * artwork spanning 3–21, so it optically centres next to text.
+ */
+export function OctoMark({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -97,27 +85,16 @@ export function RabbitMark({ className }: { className?: string }) {
       className={className}
     >
       <path
-        d="M7.6 10.2C7.1 7.9 6.6 5.6 6.6 4.2c0-1 .5-1.5 1.2-1.5.9 0 1.5.9 1.9 2.3.4 1.4.7 3.2.8 4.6"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M3 13A9 10 0 0 1 21 13Z
+           M3 13a2.25 8 0 0 0 4.5 0Z
+           M7.5 13a2.25 8 0 0 0 4.5 0Z
+           M12 13a2.25 8 0 0 0 4.5 0Z
+           M16.5 13a2.25 8 0 0 0 4.5 0Z
+           M10.45 10.2a1.45 1.45 0 1 1-2.9 0 1.45 1.45 0 1 1 2.9 0Z
+           M16.45 10.2a1.45 1.45 0 1 1-2.9 0 1.45 1.45 0 1 1 2.9 0Z"
       />
-      <path
-        d="M16.4 10.2c.5-2.3 1-4.6 1-6 0-1-.5-1.5-1.2-1.5-.9 0-1.5.9-1.9 2.3-.4 1.4-.7 3.2-.8 4.6"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 9.4c3.4 0 6.1 2.6 6.1 5.9 0 3.2-2.7 5.3-6.1 5.3s-6.1-2.1-6.1-5.3c0-3.3 2.7-5.9 6.1-5.9Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <circle cx="9.7" cy="14.6" r="1" fill="currentColor" />
-      <circle cx="14.3" cy="14.6" r="1" fill="currentColor" />
     </svg>
   );
 }

@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowUp, Check, Copy } from "lucide-react";
-import { Rail, ShowcaseCard, Texture, UiIcon } from "./parts";
+import { OctoMark } from "@/components/brand";
+import { Rail, ShowcaseCard, Texture } from "./parts";
 import { media } from "@/lib/media";
 
 const SPAN_HALF = "md:col-span-3";
@@ -21,7 +22,7 @@ export function CustomerIntelligenceCards() {
         <div className="relative flex h-full flex-col justify-end gap-2.5 p-4 md:p-5">
           <div className="max-w-[400px] border border-line bg-paper/94 p-3.5 backdrop-blur-[1px]">
             <div className="flex items-center gap-2">
-              <UiIcon src={media.iconRulebaseSm} className="h-4 w-4" />
+              <OctoMark className="h-4 w-4 text-orange" />
               <p className="type-label text-muted">Octo</p>
             </div>
             <p className="mt-2.5 text-[12px] leading-[17px] tracking-[-0.01em] text-ink">
