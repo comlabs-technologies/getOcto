@@ -37,7 +37,6 @@ export const media = {
   // UI icons + decorative ----------------------------------------------------
   decorKnowledge: asset("5402bef7c6772e9e50fd65f5a1813004a0d2d92d.webp"),
   decorRemediation: asset("804cd45f5dd12385ab2cbd1dd2ed4c853dfb979c.webp"),
-  iconRulebaseSm: asset("ai-icon-rulebase-sm.svg"),
   iconPhone: asset("icon-phone.svg"),
   iconDollar: asset("icon-dollar.svg"),
   iconDownload: asset("icon-download.svg"),
@@ -58,8 +57,7 @@ export const media = {
     asset("e0cb34de27c7a2c32ac55aade4ee1952f5a98b6e.svg"),
   ],
 
-  // Logos + badges -----------------------------------------------------------
-  rulebaseLogo: asset("rulebase-logo-new.svg"),
+  // Badges --------------------------------------------------------------------
   badgeSoc: asset("badge-soc.png"),
   badgeGdpr: asset("badge-gdpr.png"),
   badgeYc: asset("badge-yc.png"),
@@ -82,8 +80,6 @@ export const media = {
     r2c4: asset("tile-r2c4.png"),
     r2c8: asset("tile-r2c8.png"),
   },
-
-  favicon: "https://rulebase.co/favicon.ico",
 } as const;
 
 export type Media = typeof media;

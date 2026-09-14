@@ -17,6 +17,8 @@
   --color-line-soft: rgba(30, 30, 30, 0.08);
   --color-dark-line: rgba(255, 255, 255, 0.12);
   --color-orange: #fe4c00;
+  /* Sits outside the boxed page, a shade under --color-background. */
+  --color-surround: #e6e3e0;
 
   --font-sans: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
 
@@ -36,6 +38,9 @@
   :root {
     --page-x: 18px;
     --header-h: 60px;
+    /* Boxed page width. Kept in sync with the media query in .site-shell,
+       which cannot read a custom property. */
+    --shell: 1600px;
     color-scheme: light;
   }
 
@@ -58,7 +63,7 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: var(--color-surround);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 16px;
@@ -105,6 +110,28 @@
 /* -------------------------------------------------------------------------- */
 
 @layer components {
+  /* Boxed page ------------------------------------------------------------ */
+
+  /*
+   * Everything except the video modal lives inside this box, so section
+   * backgrounds stop at the cap rather than bleeding to the viewport edge.
+   * The sticky header and the pinned problem sequence both still work: a
+   * plain max-width block creates no transform or overflow containing block.
+   */
+  .site-shell {
+    width: 100%;
+    max-width: var(--shell);
+    margin-inline: auto;
+    background-color: var(--color-background);
+  }
+
+  /* Only frame the box once the surround is actually visible. */
+  @media (min-width: 1600px) {
+    .site-shell {
+      border-inline: 1px solid var(--color-line);
+    }
+  }
+
   /* Page gutters ---------------------------------------------------------- */
 
   .px-page {

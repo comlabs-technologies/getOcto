@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Octo">
+  <rect width="32" height="32" rx="4" fill="#fe4c00"/>
+  <g transform="translate(2.667 2.667) scale(1.1111)">
+    <path fill="#ffffff" fill-rule="evenodd"
+      d="M3 13A9 10 0 0 1 21 13Z
+         M3 13a2.25 8 0 0 0 4.5 0Z
+         M7.5 13a2.25 8 0 0 0 4.5 0Z
+         M12 13a2.25 8 0 0 0 4.5 0Z
+         M16.5 13a2.25 8 0 0 0 4.5 0Z
+         M10.45 10.2a1.45 1.45 0 1 1-2.9 0 1.45 1.45 0 1 1 2.9 0Z
+         M16.45 10.2a1.45 1.45 0 1 1-2.9 0 1.45 1.45 0 1 1 2.9 0Z"/>
+  </g>
+</svg>

@@ -24,6 +24,22 @@ for `next/image`. Remote SVGs use plain `<img>` (they must bypass the image
 optimizer), the MP4 preview uses `<video>` with a lazily assigned `src`, and the
 YouTube player is an iframe that is only created once the modal opens.
 
+## Layout
+
+The page is boxed: everything sits inside `.site-shell`, capped at `--shell`
+(1600px) and centred, so section backgrounds stop at the cap instead of
+bleeding to the viewport edge. Below 1600px the shell is exactly viewport
+width, so responsive behaviour is unchanged. The video modal is deliberately
+outside the box — it portals to `<body>` and covers the whole viewport.
+
+## Brand assets
+
+The Octo mark, wordmark lockup and icons are original artwork authored in this
+repo — `OctoMark` in `src/components/brand.tsx`, plus `src/app/icon.svg`,
+`icon.png` and `apple-icon.png`, which Next.js links automatically through its
+`app/` file conventions. The rasters were generated from the same geometry as
+the SVG path.
+
 ## Structure
 
 - `src/lib/media.ts` — the remote media manifest

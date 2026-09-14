@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { media } from "@/lib/media";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,11 +11,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        {/* Existing asset, untouched pending the visual-branding pass. */}
-        <link rel="icon" href={media.favicon} />
-      </head>
-      <body>{children}</body>
+      {/* Icons come from src/app/icon.svg, icon.png and apple-icon.png. */}
+      <body>
+        <div className="site-shell">{children}</div>
+      </body>
     </html>
   );
 }

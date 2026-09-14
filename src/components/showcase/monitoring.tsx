@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { Check } from "lucide-react";
-import { Dot, Rail, ShowcaseCard, Texture, UiIcon } from "./parts";
+import { OctoMark } from "@/components/brand";
+import { Dot, Rail, ShowcaseCard, Texture } from "./parts";
 import { media } from "@/lib/media";
 
 const SPAN_THIRD = "md:col-span-2";
@@ -111,10 +112,7 @@ export function MonitoringCards() {
             <span className="pointer-events-none absolute inset-y-0 right-0 w-[86px]">
               <Texture src={media.textureAlertGreen} opacity={0.9} />
             </span>
-            <UiIcon
-              src={media.iconRulebaseSm}
-              className="relative h-4 w-4 shrink-0"
-            />
+            <OctoMark className="relative h-4 w-4 shrink-0 text-orange" />
             <p className="relative text-[11px] leading-[15px] tracking-[-0.01em] text-ink">
               <span className="text-muted">Octo</span> — 4 new complaints
               detected in the last hour.

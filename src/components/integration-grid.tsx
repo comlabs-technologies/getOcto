@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { RabbitMark } from "@/components/brand";
+import { OctoMark } from "@/components/brand";
 import { Reveal } from "@/components/primitives/reveal";
 import { integrationRows, type IntegrationCell } from "@/lib/data";
 
@@ -67,7 +67,7 @@ function Cell({
   if (cell.kind === "brand") {
     return (
       <div className={`${base} bg-ink`}>
-        <RabbitMark className="h-[46%] w-[46%] text-white" />
+        <OctoMark className="h-[46%] w-[46%] text-white" />
         <span className="sr-only">Octo</span>
       </div>
     );
