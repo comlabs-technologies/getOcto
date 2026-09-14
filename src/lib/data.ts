@@ -12,56 +12,57 @@ export const megaMenu: {
 } = {
   columns: [
     {
-      heading: "AI agents",
+      heading: "AI operations",
       items: [
         {
-          title: "Agent monitoring",
-          description: "Monitor every AI interaction and customer outcome.",
+          title: "Conversation monitoring",
+          description:
+            "See where service quality breaks across every interaction.",
           href: "#agent-workspace",
         },
         {
-          title: "Simulations",
-          description: "Test agents safely before changes go live.",
-          href: "#agent-workspace",
+          title: "Resolution intelligence",
+          description: "Learn from successful resolutions and reuse what works.",
+          href: "#outcomes",
         },
         {
-          title: "Self improvements",
-          description: "Turn failures into prompt, knowledge, and tool fixes.",
+          title: "Customer signals",
+          description: "Identify friction, escalation risk and churn behaviour.",
           href: "#outcomes",
         },
       ],
     },
     {
-      heading: "Human agents",
+      heading: "Human operations",
       items: [
         {
-          title: "AutoQA",
-          description: "Review every interaction, not a sample.",
+          title: "Quality insights",
+          description: "Review every interaction, not a sample of them.",
           href: "#agent-workspace",
         },
         {
-          title: "Insights",
-          description: "Find quality gaps, risks, and customer signals.",
+          title: "Workflow improvement",
+          description: "Turn recurring patterns into stronger workflows.",
           href: "#outcomes",
         },
         {
           title: "Coaching",
-          description: "Turn QA findings into focused coaching.",
+          description: "Turn review findings into specific coaching.",
           href: "#agent-workspace",
         },
       ],
     },
   ],
   footer: {
-    title: "MCP",
-    description: "Connect Rulebase to your customer systems.",
+    title: "Integrations",
+    description: "Connect Octo to the systems your operation runs on.",
     href: "#integrations",
   },
 };
 
 export const primaryNav: { label: string; href: string }[] = [
-  { label: "Media", href: "#case-study" },
-  { label: "Careers", href: "#footer" },
+  { label: "Stories", href: "#case-study" },
+  { label: "Company", href: "#footer" },
   { label: "Contact", href: "#footer" },
 ];
 
@@ -76,13 +77,18 @@ export type TrustLogo = {
   wordmarkClass?: string;
 };
 
+/**
+ * Illustrative marks only. The image assets are unchanged, but nothing here
+ * names a company or implies one is an Octo customer — `name` is a sector
+ * descriptor used for the accessible name and the typeset fallback.
+ */
 export const trustLogos: TrustLogo[] = [
-  { name: "Qonto", src: media.markQonto },
-  { name: "Lesaka", src: media.markLesaka, label: "Nasdaq: LSAK" },
-  { name: "nala", src: media.markNala, wordmarkClass: "lowercase" },
-  { name: "Rho", src: media.markRho, label: "Case study" },
-  { name: "Interswitch", src: media.markInterswitch },
-  { name: "Kuda", src: media.markKuda, label: "Case study" },
+  { name: "Business banking platform", src: media.markQonto },
+  { name: "Payments group", src: media.markLesaka },
+  { name: "Money transfer service", src: media.markNala },
+  { name: "Treasury platform", src: media.markRho },
+  { name: "Payment processor", src: media.markInterswitch },
+  { name: "Digital bank", src: media.markKuda },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -102,55 +108,55 @@ export const workspaceTabs: {
 }[] = [
   {
     id: "ai",
-    label: "AI Agents",
+    label: "AI operations",
     cards: [
       {
         id: "monitor",
-        title: "Monitor",
+        title: "Observe",
         description:
-          "Review every AI and human interaction across chat, voice, and workflows.",
+          "Bring chat, voice and workflow interactions into one operational view.",
       },
       {
         id: "detect",
         title: "Detect",
         description:
-          "Find silent failures, quality gaps, policy breaches, and emerging risk.",
+          "Surface unresolved issues, policy gaps, repeat contacts and emerging risk.",
       },
       {
         id: "diagnose",
-        title: "Diagnose",
+        title: "Understand",
         description:
-          "Compare failed AI journeys with human resolutions to find root causes.",
+          "Connect failed interactions with customer history and successful resolutions.",
       },
       {
         id: "improve",
         title: "Improve",
         description:
-          "Prioritize fixes, automate recovery, and measure the impact on outcomes.",
+          "Turn recurring patterns into clearer guidance, stronger workflows and better outcomes.",
       },
     ],
   },
   {
     id: "human",
-    label: "Human agents",
+    label: "Human operations",
     cards: [
       {
         id: "listen",
         title: "Listen",
         description:
-          "Score every conversation across chat, voice, and email instead of a sample.",
+          "Review every conversation across chat, voice and email instead of a sample.",
       },
       {
         id: "assist",
         title: "Assist",
         description:
-          "Surface the policy, account history, and next step while the customer waits.",
+          "Surface the policy, account history and next step while the customer waits.",
       },
       {
         id: "coaching",
         title: "Coaching",
         description:
-          "Turn QA findings into focused coaching and track whether behaviour changes.",
+          "Turn review findings into focused coaching and track whether behaviour changes.",
       },
     ],
   },
@@ -169,21 +175,21 @@ export type ShowcaseMode = {
 export const showcaseModes: ShowcaseMode[] = [
   {
     id: "monitoring",
-    title: "Monitoring",
+    title: "Conversation monitoring",
     description:
-      "See every AI and human agent failure, not only the ones customers complain about.",
+      "See where service quality breaks across AI and human interactions.",
   },
   {
     id: "self-improvement",
-    title: "Self improvement",
+    title: "Resolution intelligence",
     description:
-      "Close the loop from a detected failure to the prompt, knowledge, or process fix.",
+      "Learn from successful resolutions and reuse what works.",
   },
   {
     id: "customer-intelligence",
-    title: "Customer intelligence",
+    title: "Customer signals",
     description:
-      "Unify what every conversation says about churn, risk, and revenue.",
+      "Identify friction, escalation risk and changing customer behaviour.",
   },
 ];
 
@@ -195,36 +201,37 @@ export type SecurityFeature = {
   id: string;
   title: string;
   description: string;
+  /** Icon keys are unchanged so the section's illustrations stay identical. */
   icon: "soc" | "gdpr" | "pci" | "encryption";
 };
 
 export const securityFeatures: SecurityFeature[] = [
   {
-    id: "soc",
-    title: "SOC Type 2",
+    id: "access",
+    title: "Access controls",
     description:
-      "We are SOC 2 Type II compliant for access controls and complete management of data across all our systems.",
+      "Role-based permissions help teams control who can view conversations and operational data.",
     icon: "soc",
   },
   {
-    id: "gdpr",
-    title: "GDPR",
+    id: "governance",
+    title: "Data governance",
     description:
-      "With our residency controls, we are also under GDPR — the world's strictest standard for data privacy.",
+      "Configurable retention and handling policies support responsible customer-data management.",
     icon: "gdpr",
   },
   {
-    id: "pci",
-    title: "PCI DSS",
+    id: "workflows",
+    title: "Protected workflows",
     description:
-      "We protect cardholder and payment data in line with PCI DSS standards, and ring-fence processing across environments.",
+      "Sensitive actions can require review, approval and complete audit history.",
     icon: "pci",
   },
   {
     id: "encryption",
     title: "Encryption",
     description:
-      "We encrypt your data with AES-256 at rest and TLS 1.3 in transit, ensuring end-to-end protection for every byte.",
+      "Data is designed to remain encrypted in transit and at rest, across every integration.",
     icon: "encryption",
   },
 ];
@@ -271,7 +278,7 @@ export const problemPanels: ProblemPanel[] = [
 ];
 
 export const problemStatement =
-  "AI and human agents go unmonitored. Silent failures stay detached from customer outcomes until complaints escalate and valuable customers leave.";
+  "When customer conversations disappear into disconnected queues, unresolved risk compounds. Octo reconnects the interaction, operational response and final outcome.";
 
 /* -------------------------------------------------------------------------- */
 /* Integration grid                                                           */
@@ -279,7 +286,7 @@ export const problemStatement =
 
 export type IntegrationCell =
   | { kind: "empty" }
-  | { kind: "rulebase" }
+  | { kind: "brand" }
   | { kind: "tile"; src: string; name: string }
   | { kind: "mark"; src: string; name: string }
   | { kind: "wordmark"; name: string };
@@ -325,7 +332,7 @@ export const integrationRows: IntegrationCell[][] = [
     tile(t.r1c6, "Contact centre platform"),
     word("Google Drive"),
     word("Intercom"),
-    { kind: "rulebase" },
+    { kind: "brand" },
     tile(t.r1c7, "Ticketing platform"),
     word("Stripe"),
     tile(t.r1c10, "Data warehouse"),
@@ -365,40 +372,39 @@ export const footerColumns: FooterColumn[] = [
   {
     heading: "Product",
     links: [
-      { label: "Agent monitoring", href: "#agent-workspace" },
-      { label: "Simulations", href: "#agent-workspace" },
-      { label: "Self improvements", href: "#outcomes" },
-      { label: "AutoQA", href: "#agent-workspace" },
-      { label: "Insights", href: "#outcomes" },
-      { label: "Coaching", href: "#agent-workspace" },
+      { label: "Conversation monitoring", href: "#outcomes" },
+      { label: "Resolution intelligence", href: "#outcomes" },
+      { label: "Customer signals", href: "#outcomes" },
+      { label: "Workflow improvement", href: "#agent-workspace" },
+      { label: "Quality insights", href: "#agent-workspace" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "Media", href: "#case-study" },
-      { label: "Careers", href: "#footer" },
+      { label: "Stories", href: "#case-study" },
+      { label: "Company", href: "#footer" },
       { label: "Contact", href: "#footer" },
-      { label: "Trust and Security", href: "#security" },
+      { label: "Security", href: "#security" },
     ],
   },
   {
     heading: "Resources",
     links: [
-      { label: "Terms and Conditions", href: "#footer" },
-      { label: "Privacy Policy", href: "#footer" },
-      { label: "Cookie Settings", href: "#cookie-settings", action: "cookies" },
+      { label: "Product overview", href: "#outcomes" },
+      { label: "Privacy", href: "#footer" },
+      { label: "Terms", href: "#footer" },
+      { label: "Cookie settings", href: "#cookie-settings", action: "cookies" },
     ],
   },
   {
-    heading: "MCP",
+    heading: "Integrations",
     links: [
-      { label: "Skills library", href: "#integrations" },
-      { label: "MCP for Intercom", href: "#integrations" },
-      { label: "MCP for Zendesk", href: "#integrations" },
-      { label: "MCP for Freshdesk", href: "#integrations" },
-      { label: "MCP for Help Scout", href: "#integrations" },
-      { label: "MCP for Crisp", href: "#integrations" },
+      { label: "Support platforms", href: "#integrations" },
+      { label: "Contact centres", href: "#integrations" },
+      { label: "CRM systems", href: "#integrations" },
+      { label: "Knowledge tools", href: "#integrations" },
+      { label: "Workflow systems", href: "#integrations" },
     ],
   },
 ];

@@ -7,16 +7,21 @@ import { trustLogos, type TrustLogo } from "@/lib/data";
 export function TrustMarquee() {
   return (
     <section
-      aria-label="Customers"
+      aria-label="Product concept"
       className="px-page border-b border-line bg-background py-9 md:py-11"
     >
       <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-12">
-        <p className="type-label max-w-[260px] shrink-0 text-muted lg:max-w-[210px]">
-          Trusted by the fastest growing and publicly traded regulated services.
-        </p>
+        <div className="max-w-[260px] shrink-0 lg:max-w-[210px]">
+          <p className="type-label text-muted">
+            Built as a concept for complex, high-volume customer operations.
+          </p>
+          <p className="type-label mt-2 text-muted/70">
+            Independent product concept
+          </p>
+        </div>
 
         <Marquee
-          label="Companies that run customer operations on Rulebase"
+          label="Illustrative marks for the kinds of operations Octo is built for"
           className="min-w-0 flex-1 [mask-image:linear-gradient(to_right,transparent,#000_36px,#000_calc(100%-36px),transparent)]"
           durationSeconds={45}
         >

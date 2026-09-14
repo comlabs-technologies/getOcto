@@ -8,11 +8,11 @@ import { useVideoModal } from "@/components/video-modal";
 import { media } from "@/lib/media";
 
 const STATS = [
-  { value: "95%", label: "Reduction in manual reviews" },
-  { value: "20hrs", label: "per week saved" },
+  { value: "92%", label: "interactions reviewed" },
+  { value: "18hrs", label: "operational time returned weekly" },
 ];
 
-export function RhoCaseStudy() {
+export function CustomerStory() {
   const { open } = useVideoModal();
 
   return (
@@ -24,17 +24,16 @@ export function RhoCaseStudy() {
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-24">
         <Reveal>
           <h2 id="case-study-heading" className="type-section max-w-[560px] text-ink">
-            See how leading fintechs automate QA and deploy agents to run
-            customer ops.
+            What better customer operations could look like.
           </h2>
         </Reveal>
 
         <Reveal delay={0.08} className="flex flex-col justify-end">
           <figure className="m-0">
             <blockquote className="max-w-[480px] text-[15px] leading-[23px] tracking-[-0.01em] text-ink">
-              &ldquo;With Rulebase, every customer touchpoint is protected and
-              optimized in real-time, giving us total confidence, total
-              coverage, and the freedom to focus on what matters most&rdquo;
+              &ldquo;Octo gave our team one place to understand why customers
+              were returning, where resolutions were failing and which
+              improvements would have the greatest impact.&rdquo;
             </blockquote>
 
             <dl className="mt-9 flex gap-12 border-t border-line pt-7 md:gap-16">
@@ -60,10 +59,13 @@ export function RhoCaseStudy() {
               />
               <span className="flex flex-col">
                 <span className="text-[13px] tracking-[-0.01em] text-ink">
-                  Stas Johnson-Chyzhykov
+                  Mira Sen
                 </span>
                 <span className="text-[12px] text-muted">
-                  Chief Operating Officer at Rho
+                  VP, Customer Experience — Northstar Financial
+                </span>
+                <span className="text-[11px] text-muted/75">
+                  Illustrative scenario
                 </span>
               </span>
             </figcaption>
@@ -78,7 +80,7 @@ export function RhoCaseStudy() {
         <button
           type="button"
           onClick={open}
-          aria-label="Play the Rho customer story"
+          aria-label="Play the Octo customer operations walkthrough"
           className="group relative block w-full overflow-hidden border border-line bg-dark"
           style={{ aspectRatio: "16 / 7" }}
         >
@@ -98,13 +100,14 @@ export function RhoCaseStudy() {
       </Reveal>
 
       {/* ------------------------------------------------------------------ */}
-      {/* Interswitch testimonial                                             */}
+      {/* Second illustrative testimonial                                     */}
       {/* ------------------------------------------------------------------ */}
       <Reveal className="mt-20 md:mt-28 lg:mt-32" amount={0.3}>
         <figure className="mx-auto m-0 max-w-[880px] text-center">
           <blockquote className="text-[24px] leading-[1.24] tracking-[-0.03em] text-balance text-ink md:text-[30px] lg:text-[34px]">
-            &ldquo;Rulebase is AI for customer ops at fintechs. It watches every
-            interaction, flags risk in real time, and works the follow-up.&rdquo;
+            &ldquo;When a resolution fails we can see the conversation, the
+            workflow step and the customer outcome together, instead of in three
+            separate reports.&rdquo;
           </blockquote>
           <figcaption className="mt-9 flex flex-col items-center gap-3">
             <Image
@@ -116,10 +119,13 @@ export function RhoCaseStudy() {
             />
             <span className="flex flex-col items-center">
               <span className="text-[13px] tracking-[-0.01em] text-ink">
-                Oremeyi Adeola Okah
+                Daniel Okafor
               </span>
               <span className="text-[12px] text-muted">
-                Chief Customer Officer at Interswitch
+                Director of Support Operations — Harbour Line Group
+              </span>
+              <span className="text-[11px] text-muted/75">
+                Illustrative scenario
               </span>
             </span>
           </figcaption>

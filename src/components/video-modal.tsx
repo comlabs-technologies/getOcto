@@ -57,7 +57,7 @@ function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
     <Dialog
       open={open}
       onClose={onClose}
-      label="Rho customer story"
+      label="Octo customer operations walkthrough"
       overlayClassName="bg-black/90 px-page py-16"
       surfaceClassName="w-full max-w-[1120px]"
     >
@@ -76,7 +76,7 @@ function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         {open ? (
           <iframe
             src={media.rhoYouTube}
-            title="How Rho automates QA and deploys agents to run customer ops"
+            title="How customer operations teams use Octo to detect and resolve failures"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             className="absolute inset-0 h-full w-full border-0"

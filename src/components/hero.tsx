@@ -10,7 +10,7 @@ import { useVideoModal } from "@/components/video-modal";
 import { easeEditorial } from "@/lib/motion";
 import { media } from "@/lib/media";
 
-const HEADLINE = ["Monitor every agent.", "Improve every outcome."];
+const HEADLINE = ["Every conversation.", "A clearer outcome."];
 
 export function Hero() {
   const reduced = usePrefersReducedMotion();
@@ -27,7 +27,7 @@ export function Hero() {
         };
 
   return (
-    <section id="top" aria-label="Rulebase" className="relative">
+    <section id="top" aria-label="Octo" className="relative">
       <div className="grid lg:min-h-[calc(100svh-60px)] lg:grid-cols-2">
         {/* ---------------------------------------------------------------- */}
         {/* Left — near-black editorial column                                */}
@@ -56,8 +56,8 @@ export function Hero() {
                   </span>
                 </span>
                 <span className="text-[11.5px] leading-[15px] tracking-[-0.01em] text-white/70 transition-colors duration-[180ms] group-hover:text-white/90">
-                  Watch how Rho monitors their CX team to operate faster and
-                  reduce risk
+                  See how customer operations teams uncover hidden failures
+                  before they escalate.
                 </span>
               </button>
             </motion.div>
@@ -76,14 +76,14 @@ export function Hero() {
               {...rise(0.9, 0.52, 16)}
               className="type-body mt-6 max-w-[470px] text-white/62 md:mt-7"
             >
-              Rulebase monitors every AI and human customer interaction, finds
-              where outcomes break, and shows the prompt, knowledge, coaching,
-              or process fix that improves resolution.
+              Octo connects conversations, workflows and customer signals to
+              show where service breaks&mdash;and what your team should improve
+              next.
             </motion.p>
 
             <motion.div {...rise(0.9, 0.62, 16)} className="mt-8 md:mt-9">
               <a href="#footer" className="btn btn-orange">
-                Schedule a Demo
+                Book a walkthrough
               </a>
             </motion.div>
           </div>

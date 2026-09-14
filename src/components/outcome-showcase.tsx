@@ -42,9 +42,9 @@ export function OutcomeShowcase() {
     >
       <Reveal>
         <h2 id="outcomes-heading" className="type-section text-ink">
-          Every conversation.
+          Every interaction.
           <br />
-          Better outcomes.
+          Clearer decisions.
         </h2>
       </Reveal>
 

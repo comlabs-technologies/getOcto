@@ -4,7 +4,7 @@ import { Hero } from "@/components/hero";
 import { IntegrationGrid } from "@/components/integration-grid";
 import { OutcomeShowcase } from "@/components/outcome-showcase";
 import { ProblemSequence } from "@/components/problem-sequence";
-import { RhoCaseStudy } from "@/components/rho-case-study";
+import { CustomerStory } from "@/components/customer-story";
 import { SecuritySection } from "@/components/security-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -21,7 +21,7 @@ export default function HomePage() {
           <TrustMarquee />
           <AgentWorkspace />
           <OutcomeShowcase />
-          <RhoCaseStudy />
+          <CustomerStory />
           <SecuritySection />
           <ProblemSequence />
           <IntegrationGrid />

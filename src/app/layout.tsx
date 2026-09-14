@@ -4,16 +4,16 @@ import { media } from "@/lib/media";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Rulebase — Monitor every agent. Improve every outcome.",
+  title: "Octo — Customer Operations Intelligence",
   description:
-    "Rulebase monitors every AI and human customer interaction, finds where outcomes break, and shows the prompt, knowledge, coaching, or process fix that improves resolution.",
+    "Octo turns every customer conversation into operational intelligence, helping support teams detect failures, understand root causes and improve resolution quality.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* Served directly from rulebase.co — never copied into this repo. */}
+        {/* Existing asset, untouched pending the visual-branding pass. */}
         <link rel="icon" href={media.favicon} />
       </head>
       <body>{children}</body>
