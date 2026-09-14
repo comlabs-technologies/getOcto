@@ -1,6 +1,6 @@
-# Rulebase homepage
+# Octo homepage
 
-A pixel-focused rebuild of the [rulebase.co](https://rulebase.co/) homepage.
+Homepage for **Octo**, a fictional customer-operations intelligence platform.
 
 - Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Motion for React · Lucide icons
 - Single route: `/`. No dashboards, auth, APIs, CMS, blog or extra pages.
@@ -17,7 +17,7 @@ npm run typecheck  # tsc --noEmit
 
 ## Media
 
-Every image, video and logo is loaded **directly from `rulebase.co`** — nothing is
+Every image, video and logo is loaded **directly from its original remote host** — nothing is
 downloaded into the repo, copied into `/public`, or inlined as base64. All URLs
 live in one place, `src/lib/media.ts`, and `next.config.ts` allow-lists the host
 for `next/image`. Remote SVGs use plain `<img>` (they must bypass the image

@@ -77,10 +77,10 @@ export function HeroConversationDemo() {
           />
           <span className="flex flex-col leading-none">
             <span className="text-[13px] tracking-[-0.01em] text-ink">
-              Ashlynn
+              Nova
             </span>
             <span className="mt-1 text-[11px] leading-none text-muted">
-              CX AI Agent
+              Customer Operations Agent
             </span>
           </span>
           <span className="ml-auto flex items-center gap-1.5 border border-line-soft bg-panel px-2 py-1">
@@ -99,12 +99,13 @@ export function HeroConversationDemo() {
 
         <div className="flex flex-col gap-2.5 px-4 py-4">
           <Bubble tone="customer">
-            I paid £240 and it left my account, but the order still says unpaid.
+            The payment left my account, but my order still shows as unpaid.
           </Bubble>
           <Bubble tone="agent" flagged={flagged}>
-            The payment failed at the bank. Refunds take up to 30 days.
+            I&rsquo;ve found the failed confirmation event and opened a priority
+            payment review.
           </Bubble>
-          <Bubble tone="customer">30 days? My rent is due Friday.</Bubble>
+          <Bubble tone="customer">Will this be resolved before Friday?</Bubble>
         </div>
       </div>
 
@@ -239,8 +240,8 @@ function AnalyzingPanel() {
           />
         </div>
         <p className="mt-3 text-[11.5px] leading-[16px] text-muted">
-          Reading transcript, tool calls, and the outcome the customer actually
-          received.
+          Reading the transcript, the workflow steps, and the outcome the
+          customer actually received.
         </p>
       </div>
     </>
@@ -249,9 +250,9 @@ function AnalyzingPanel() {
 
 function TracesPanel() {
   const traces = [
-    { label: "payment.intent.failed", meta: "bank decline" },
-    { label: "kb.article.refund-window", meta: "retrieved" },
-    { label: "sop.card-reversal", meta: "not retrieved" },
+    { label: "payment.intent.captured", meta: "settled" },
+    { label: "order.confirmation.sent", meta: "no receipt" },
+    { label: "webhook.retry.exhausted", meta: "failed" },
   ];
 
   return (
@@ -281,9 +282,9 @@ function TracesPanel() {
 
 function PathPanel() {
   const nodes = [
-    { label: "Payment failed", ok: true },
-    { label: "Quoted 30 days", ok: false },
-    { label: "Customer waiting", ok: false },
+    { label: "Payment captured", ok: true },
+    { label: "Confirmation lost", ok: false },
+    { label: "Order still unpaid", ok: false },
   ];
 
   return (
@@ -335,8 +336,8 @@ function IssuePanel() {
       />
       <div className="px-3.5 pt-3 pb-3.5">
         <p className="text-[11.5px] leading-[16px] tracking-[-0.01em] text-ink">
-          Agent quoted a 30 day refund window. The SOP and knowledge base both
-          say a failed card payment reverses in 3 to 5 business days.
+          Order confirmations stop after the payment webhook exhausts its
+          retries, leaving settled payments recorded against unpaid orders.
         </p>
 
         <dl className="mt-3 grid grid-cols-3 gap-px border border-line-soft bg-line-soft">
@@ -366,7 +367,7 @@ function IssuePanel() {
             Simulate fix
           </span>
           <span className="btn btn-orange btn-sm min-h-[30px]">
-            Apply KB fix
+            Apply fix
           </span>
         </div>
       </div>
@@ -380,7 +381,7 @@ function IssueChart() {
       viewBox="0 0 132 30"
       className="h-[30px] w-[132px]"
       role="img"
-      aria-label="Incorrect refund quotes rising between 25 June and 23 August"
+      aria-label="Unconfirmed orders rising between 25 June and 23 August"
       preserveAspectRatio="none"
     >
       <line x1="0" y1="29.5" x2="132" y2="29.5" stroke="rgba(30,30,30,0.15)" />

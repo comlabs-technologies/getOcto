@@ -21,18 +21,18 @@ export function SecuritySection() {
     >
       <Reveal>
         <h2 id="security-heading" className="type-section max-w-[760px] text-white">
-          Compliance and security
+          Security designed into
           <br />
-          guardrails built in.
+          every workflow.
         </h2>
       </Reveal>
 
       <Reveal delay={0.06}>
         <p className="type-body mt-6 max-w-[520px] text-white/55">
-          SOC 2 Type II. GDPR. PCI DSS. Zero AI training on your data. Built for
-          the compliance demands of regulated financial services.
+          Octo is designed around controlled access, data minimisation,
+          auditability and secure integration with customer-operation systems.
         </p>
-        <a href="#footer" className="btn btn-paper btn-sm mt-7 min-h-[38px]">
+        <a href="#security" className="btn btn-paper btn-sm mt-7 min-h-[38px]">
           Read more
         </a>
       </Reveal>
@@ -65,6 +65,13 @@ export function SecuritySection() {
           );
         })}
       </ul>
+
+      <Reveal delay={0.06}>
+        <p className="mt-8 text-[12px] leading-[17px] text-white/40">
+          Security capabilities shown are part of this conceptual product
+          demonstration.
+        </p>
+      </Reveal>
     </section>
   );
 }

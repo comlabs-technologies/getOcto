@@ -22,7 +22,7 @@ export function CustomerIntelligenceCards() {
           <div className="max-w-[400px] border border-line bg-paper/94 p-3.5 backdrop-blur-[1px]">
             <div className="flex items-center gap-2">
               <UiIcon src={media.iconRulebaseSm} className="h-4 w-4" />
-              <p className="type-label text-muted">Rulebase</p>
+              <p className="type-label text-muted">Octo</p>
             </div>
             <p className="mt-2.5 text-[12px] leading-[17px] tracking-[-0.01em] text-ink">
               Onboarding completions fell 18% after Tuesday. 62% of stalled
@@ -60,8 +60,8 @@ export function CustomerIntelligenceCards() {
       {/* 2 ------------------------------------------------------------- */}
       <ShowcaseCard
         span={SPAN_HALF}
-        title="Customer intelligence, unified"
-        description="One timeline per customer across support, product usage, and risk — not three disconnected tools."
+        title="Customer signals, unified"
+        description="One timeline per customer across support, product usage and risk — not three disconnected tools."
       >
         <div className="flex h-full gap-4 p-4 md:gap-8 md:p-5">
           <div className="min-w-0 flex-1">
@@ -161,7 +161,7 @@ export function CustomerIntelligenceCards() {
       <ShowcaseCard
         span={SPAN_HALF}
         title="Intelligence where teams work"
-        description="Connect the Rulebase MCP server and query customer intelligence from the tools your team already uses."
+        description="Connect the Octo server and query customer operations data from the tools your team already uses."
         surfaceClassName="bg-dark"
       >
         <Texture src={media.textureMcp} opacity={0.55} />
@@ -169,7 +169,7 @@ export function CustomerIntelligenceCards() {
           <div>
             <p className="type-label text-white/55">MCP server</p>
             <p className="mt-2 max-w-[300px] text-[15px] leading-[21px] tracking-[-0.02em] text-white">
-              Add Rulebase to Claude, Cursor, or any MCP client.
+              Add Octo to any MCP-compatible client your team runs.
             </p>
           </div>
           <CopyServerUrl />
@@ -180,7 +180,7 @@ export function CustomerIntelligenceCards() {
 }
 
 function CopyServerUrl() {
-  const url = "https://mcp.rulebase.co/sse";
+  const url = "https://mcp.octo.systems/sse";
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 

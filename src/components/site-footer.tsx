@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { RulebaseLogo } from "@/components/brand";
+import { BrandLogo } from "@/components/brand";
 import { useCookiePreferences } from "@/components/cookie-preferences";
 import { footerColumns } from "@/lib/data";
 import { media } from "@/lib/media";
@@ -18,21 +18,21 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 border-t border-line pt-12 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] lg:gap-x-8">
           {/* Identity ---------------------------------------------------- */}
           <div className="col-span-full lg:col-span-1">
-            <RulebaseLogo />
+            <BrandLogo />
             <p className="mt-4 max-w-[220px] text-[13px] leading-[19px] text-muted">
-              Monitor every agent. Improve every outcome.
+              Every conversation. A clearer outcome.
             </p>
             <div className="mt-7 flex items-center gap-3">
               <Image
                 src={media.badgeSoc}
-                alt="SOC 2 Type II certified"
+                alt="Security programme badge"
                 width={52}
                 height={52}
                 className="h-[52px] w-auto object-contain"
               />
               <Image
                 src={media.badgeGdpr}
-                alt="GDPR compliant"
+                alt="Data protection badge"
                 width={52}
                 height={52}
                 className="h-[52px] w-auto object-contain"
@@ -73,7 +73,7 @@ export function SiteFooter() {
         {/* Bottom row ---------------------------------------------------- */}
         <div className="mt-16 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[12px] text-muted">
-            © Rulebase Technologies Inc. 2026
+            © Octo Systems 2026 — Independent product concept
           </p>
           <p className="flex items-center gap-2.5 text-[12px] text-muted">
             Backed by

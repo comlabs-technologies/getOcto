@@ -15,14 +15,14 @@ export function IntegrationGrid() {
       <div className="px-page">
         <Reveal className="mx-auto max-w-[720px] text-center">
           <h2 id="integrations-heading" className="type-section text-ink">
-            Runs on the stack you
+            Works with the tools
             <br />
-            already have.
+            your teams already use.
           </h2>
           <p className="type-body mx-auto mt-6 max-w-[560px] text-muted">
-            Your tools hold the data. Rulebase does the work reading signals
-            across every system and acting on them, without changing how your
-            team operates.
+            Octo connects customer conversations and operational signals across
+            your existing support stack&mdash;without forcing teams to replace
+            the systems they already depend on.
           </p>
         </Reveal>
       </div>
@@ -64,11 +64,11 @@ function Cell({
     return <div className={`${base} bg-[#f4f2f0]`} aria-hidden="true" />;
   }
 
-  if (cell.kind === "rulebase") {
+  if (cell.kind === "brand") {
     return (
       <div className={`${base} bg-ink`}>
         <RabbitMark className="h-[46%] w-[46%] text-white" />
-        <span className="sr-only">Rulebase</span>
+        <span className="sr-only">Octo</span>
       </div>
     );
   }

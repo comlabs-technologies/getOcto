@@ -278,7 +278,7 @@ export function SelfImprovementCards() {
               −41%
             </p>
             <p className="mt-1.5 text-[11px] leading-[15px] text-muted">
-              since the KYB checklist was rewritten from Rulebase findings
+              since the KYB checklist was rewritten from Octo findings
             </p>
             <dl className="mt-4 flex flex-col gap-2 border-t border-line pt-3">
               <div className="flex items-baseline justify-between gap-2">

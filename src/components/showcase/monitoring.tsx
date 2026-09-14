@@ -14,8 +14,8 @@ export function MonitoringCards() {
       {/* 1 ------------------------------------------------------------- */}
       <ShowcaseCard
         span={SPAN_THIRD}
-        title="See beyond the quality score"
-        description="Scores only tell you what happened. Rulebase shows the interaction behind every number."
+        title="See beyond the score"
+        description="Understand the interaction, behaviour and customer outcome behind every quality metric."
         surfaceClassName="bg-[#ded9d3]"
       >
         <Texture src={media.textureMarbleWaves} />
@@ -40,8 +40,8 @@ export function MonitoringCards() {
       {/* 2 ------------------------------------------------------------- */}
       <ShowcaseCard
         span={SPAN_THIRD}
-        title="Learn from human resolutions"
-        description="Every resolved case becomes training signal your AI agents can reuse."
+        title="Learn from strong resolutions"
+        description="Turn successful human decisions into reusable guidance for the wider operation."
         surfaceClassName="bg-dark"
       >
         <div className="flex h-full flex-col">
@@ -81,8 +81,8 @@ export function MonitoringCards() {
       {/* 3 ------------------------------------------------------------- */}
       <ShowcaseCard
         span={SPAN_THIRD}
-        title="Catch failures before they escalate"
-        description="Complaint risk is flagged while the conversation is still recoverable."
+        title="Catch risk while it is recoverable"
+        description="Detect complaints, incorrect answers and failed handoffs before they escalate."
       >
         <div className="flex h-full flex-col p-3.5">
           <p className="type-label mb-2.5 text-muted">Complaint signals</p>
@@ -116,7 +116,7 @@ export function MonitoringCards() {
               className="relative h-4 w-4 shrink-0"
             />
             <p className="relative text-[11px] leading-[15px] tracking-[-0.01em] text-ink">
-              <span className="text-muted">Rulebase</span> — 4 new complaints
+              <span className="text-muted">Octo</span> — 4 new complaints
               detected in the last hour.
             </p>
           </div>
@@ -126,8 +126,8 @@ export function MonitoringCards() {
       {/* 4 ------------------------------------------------------------- */}
       <ShowcaseCard
         span={SPAN_HALF}
-        title="Keep complaints moving"
-        description="Classification, routing, documentation, and deadline tracking happen without a queue owner."
+        title="Keep complex cases moving"
+        description="Coordinate classification, ownership, documentation and deadlines in one traceable flow."
       >
         <div className="flex h-full gap-4 p-4 md:gap-8 md:p-5">
           <div className="min-w-0 flex-1">
@@ -174,8 +174,8 @@ export function MonitoringCards() {
       {/* 5 ------------------------------------------------------------- */}
       <ShowcaseCard
         span={SPAN_HALF}
-        title="Fix the cause, not the symptom"
-        description="Recurring complaints are traced back to the prompt, policy, or process that produced them."
+        title="Improve the system, not one ticket"
+        description="Trace repeated failures back to the workflow, policy or knowledge gap causing them."
         surfaceClassName="bg-[#d9d4ce]"
       >
         <Texture src={media.textureStoneRelief} />

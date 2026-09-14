@@ -5,8 +5,8 @@ import { media } from "@/lib/media";
 
 /**
  * Remote SVG wordmark with a typeset fallback. The SVGs are served from
- * rulebase.co and are never copied locally; if one fails to load we degrade to
- * a wordmark rather than showing a broken image.
+ * their original host and are never copied locally; if one fails to load we
+ * degrade to a wordmark rather than showing a broken image.
  */
 export function LogoMark({
   src,
@@ -46,8 +46,12 @@ export function LogoMark({
   );
 }
 
-/** Rulebase lockup used in the header and footer. */
-export function RulebaseLogo({
+/**
+ * Brand lockup used in the header and footer. The wordmark image itself is
+ * left as-is for the separate visual-branding pass; only the accessible name
+ * and the typeset fallback carry the Octo name.
+ */
+export function BrandLogo({
   className,
   tone = "ink",
 }: {
@@ -64,7 +68,7 @@ export function RulebaseLogo({
         } ${className ?? ""}`}
       >
         <RabbitMark className="h-[18px] w-[18px]" />
-        Rulebase
+        Octo
       </span>
     );
   }
@@ -73,7 +77,7 @@ export function RulebaseLogo({
     // eslint-disable-next-line @next/next/no-img-element -- remote SVG, must not pass through the image optimizer
     <img
       src={media.rulebaseLogo}
-      alt="Rulebase"
+      alt="Octo"
       width={108}
       height={20}
       decoding="async"

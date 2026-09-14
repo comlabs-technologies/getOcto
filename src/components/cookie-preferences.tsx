@@ -15,7 +15,7 @@ import { Pressable } from "@/components/primitives/pressable";
 import { usePrefersReducedMotion } from "@/components/primitives/use-reduced-motion";
 import { easeEditorial } from "@/lib/motion";
 
-const STORAGE_KEY = "rulebase.cookie-preferences";
+const STORAGE_KEY = "octo.cookie-preferences";
 
 type Preferences = {
   productAnalytics: boolean;
@@ -168,7 +168,7 @@ export function CookiePreferencesProvider({
                 />
                 <Toggle
                   label="Visitor insights"
-                  description="Helps us understand which companies find Rulebase useful."
+                  description="Helps us understand which organisations find Octo useful."
                   checked={draft.visitorInsights}
                   onChange={(next) =>
                     setDraft((current) => ({

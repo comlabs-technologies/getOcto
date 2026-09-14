@@ -30,7 +30,7 @@ export function ProblemSequence() {
   return (
     <section
       ref={ref}
-      aria-label="Why unmonitored agents cost customers"
+      aria-label="Why disconnected customer operations compound risk"
       className="problem-track relative bg-dark"
     >
       <div className="problem-stage on-dark">

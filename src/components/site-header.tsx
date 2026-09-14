@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion } from "motion/react";
-import { RulebaseLogo } from "@/components/brand";
+import { BrandLogo } from "@/components/brand";
 import { ProductMegaMenu } from "@/components/product-mega-menu";
 import { Disclosure } from "@/components/primitives/disclosure";
 import { usePrefersReducedMotion } from "@/components/primitives/use-reduced-motion";
@@ -93,9 +93,9 @@ export function SiteHeader() {
             <a
               href="#top"
               className="flex items-center rounded-xs"
-              aria-label="Rulebase — home"
+              aria-label="Octo — home"
             >
-              <RulebaseLogo />
+              <BrandLogo />
             </a>
 
             <nav aria-label="Primary" className="hidden lg:block">
@@ -118,7 +118,7 @@ export function SiteHeader() {
                     onClick={() => setProductOpen((value) => !value)}
                     className="flex h-[60px] items-center gap-1.5 text-[15px] tracking-[-0.01em] text-ink/80 transition-colors duration-[160ms] hover:text-ink"
                   >
-                    Product
+                    Platform
                     <ChevronDown
                       size={14}
                       aria-hidden="true"
@@ -150,7 +150,7 @@ export function SiteHeader() {
               href="#footer"
               className="btn btn-orange btn-sm hidden min-h-[36px] lg:inline-flex"
             >
-              Get Started
+              Book a walkthrough
             </a>
             <button
               type="button"
@@ -249,7 +249,7 @@ export function SiteHeader() {
             onClick={() => setMobileOpen(false)}
             className="btn btn-orange mt-6 w-full"
           >
-            Get Started
+            Book a walkthrough
           </a>
         </nav>
       </div>

@@ -41,7 +41,7 @@ export function AgentWorkspace() {
       {/* The reference shows only the tabs here; the heading keeps the
           document outline intact for assistive technology. */}
       <h2 id="agent-workspace-heading" className="sr-only">
-        Monitoring for AI and human agents
+        Visibility across AI and human support
       </h2>
 
       <div
