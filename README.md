@@ -24,6 +24,14 @@ for `next/image`. Remote SVGs use plain `<img>` (they must bypass the image
 optimizer), the MP4 preview uses `<video>` with a lazily assigned `src`, and the
 YouTube player is an iframe that is only created once the modal opens.
 
+## Layout
+
+The page is boxed: everything sits inside `.site-shell`, capped at `--shell`
+(1600px) and centred, so section backgrounds stop at the cap instead of
+bleeding to the viewport edge. Below 1600px the shell is exactly viewport
+width, so responsive behaviour is unchanged. The video modal is deliberately
+outside the box — it portals to `<body>` and covers the whole viewport.
+
 ## Brand assets
 
 The Octo mark, wordmark lockup and icons are original artwork authored in this

@@ -12,7 +12,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       {/* Icons come from src/app/icon.svg, icon.png and apple-icon.png. */}
-      <body>{children}</body>
+      <body>
+        <div className="site-shell">{children}</div>
+      </body>
     </html>
   );
 }

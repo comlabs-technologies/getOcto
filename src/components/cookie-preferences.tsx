@@ -104,115 +104,122 @@ export function CookiePreferencesProvider({
     <CookieContext.Provider value={value}>
       {children}
 
-      <AnimatePresence>
-        {visible ? (
-          <motion.div
-            role="dialog"
-            aria-labelledby="cookie-preferences-title"
-            id="cookie-settings"
-            initial={reduced ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduced ? { opacity: 0 } : { opacity: 0, y: 12 }}
-            transition={{ duration: reduced ? 0 : 0.35, ease: easeEditorial }}
-            className="fixed right-0 bottom-0 left-0 z-[90] m-[var(--page-x)] max-h-[calc(100svh-2*var(--page-x))] overflow-y-auto border border-line bg-paper sm:right-auto sm:max-w-[384px]"
-          >
-            <div className="flex items-start justify-between gap-4 border-b border-line px-5 py-4">
-              <h2
-                id="cookie-preferences-title"
-                className="text-[15px] tracking-[-0.02em] text-ink"
+      {/*
+        The panel is fixed, so it would otherwise anchor to the viewport and
+        float outside the boxed page on wide screens. This wrapper re-centres
+        it on the shell; it is inert until the panel appears.
+      */}
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[90] mx-auto w-full max-w-[var(--shell)]">
+        <AnimatePresence>
+          {visible ? (
+            <motion.div
+                role="dialog"
+                aria-labelledby="cookie-preferences-title"
+                id="cookie-settings"
+                initial={reduced ? false : { opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduced ? { opacity: 0 } : { opacity: 0, y: 12 }}
+                transition={{ duration: reduced ? 0 : 0.35, ease: easeEditorial }}
+                className="pointer-events-auto m-[var(--page-x)] max-h-[calc(100svh-2*var(--page-x))] overflow-y-auto border border-line bg-paper sm:max-w-[384px]"
               >
-                Cookie preferences
-              </h2>
-              <button
-                type="button"
-                onClick={() => setVisible(false)}
-                aria-label="Close cookie preferences"
-                className="-mt-1.5 -mr-2 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xs text-muted transition-colors duration-[160ms] hover:text-ink"
-              >
-                <X size={16} aria-hidden="true" />
-              </button>
-            </div>
+                <div className="flex items-start justify-between gap-4 border-b border-line px-5 py-4">
+                  <h2
+                    id="cookie-preferences-title"
+                    className="text-[15px] tracking-[-0.02em] text-ink"
+                  >
+                    Cookie preferences
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => setVisible(false)}
+                    aria-label="Close cookie preferences"
+                    className="-mt-1.5 -mr-2 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xs text-muted transition-colors duration-[160ms] hover:text-ink"
+                  >
+                    <X size={16} aria-hidden="true" />
+                  </button>
+                </div>
 
-            <div className="px-5 py-4">
-              <p className="text-[12.5px] leading-[18px] text-muted">
-                We use a small number of cookies to keep this site working and to
-                understand how it is used. You can change your choices at any
-                time.
-              </p>
+                <div className="px-5 py-4">
+                  <p className="text-[12.5px] leading-[18px] text-muted">
+                    We use a small number of cookies to keep this site working and to
+                    understand how it is used. You can change your choices at any
+                    time.
+                  </p>
 
-              <ul className="mt-4 flex flex-col border-t border-line">
-                <li className="flex items-start justify-between gap-4 border-b border-line py-3.5">
-                  <span className="min-w-0">
-                    <span className="block text-[13px] tracking-[-0.01em] text-ink">
-                      Necessary
-                    </span>
-                    <span className="mt-0.5 block text-[11.5px] leading-[16px] text-muted">
-                      Required for the site to load and function.
-                    </span>
-                  </span>
-                  <span className="mt-0.5 shrink-0 border border-line bg-panel px-2 py-1 text-[10px] leading-none text-muted">
-                    Always on
-                  </span>
-                </li>
+                  <ul className="mt-4 flex flex-col border-t border-line">
+                    <li className="flex items-start justify-between gap-4 border-b border-line py-3.5">
+                      <span className="min-w-0">
+                        <span className="block text-[13px] tracking-[-0.01em] text-ink">
+                          Necessary
+                        </span>
+                        <span className="mt-0.5 block text-[11.5px] leading-[16px] text-muted">
+                          Required for the site to load and function.
+                        </span>
+                      </span>
+                      <span className="mt-0.5 shrink-0 border border-line bg-panel px-2 py-1 text-[10px] leading-none text-muted">
+                        Always on
+                      </span>
+                    </li>
 
-                <Toggle
-                  label="Product analytics"
-                  description="Aggregated usage data so we can improve the product pages."
-                  checked={draft.productAnalytics}
-                  onChange={(next) =>
-                    setDraft((current) => ({
-                      ...current,
-                      productAnalytics: next,
-                    }))
-                  }
-                />
-                <Toggle
-                  label="Visitor insights"
-                  description="Helps us understand which organisations find Octo useful."
-                  checked={draft.visitorInsights}
-                  onChange={(next) =>
-                    setDraft((current) => ({
-                      ...current,
-                      visitorInsights: next,
-                    }))
-                  }
-                />
-              </ul>
+                    <Toggle
+                      label="Product analytics"
+                      description="Aggregated usage data so we can improve the product pages."
+                      checked={draft.productAnalytics}
+                      onChange={(next) =>
+                        setDraft((current) => ({
+                          ...current,
+                          productAnalytics: next,
+                        }))
+                      }
+                    />
+                    <Toggle
+                      label="Visitor insights"
+                      description="Helps us understand which organisations find Octo useful."
+                      checked={draft.visitorInsights}
+                      onChange={(next) =>
+                        setDraft((current) => ({
+                          ...current,
+                          visitorInsights: next,
+                        }))
+                      }
+                    />
+                  </ul>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                <Pressable
-                  size="sm"
-                  variant="outline"
-                  className="min-h-[38px]"
-                  onClick={() =>
-                    persist({ productAnalytics: false, visitorInsights: false })
-                  }
-                >
-                  Decline all
-                </Pressable>
-                <Pressable
-                  size="sm"
-                  variant="ink"
-                  className="min-h-[38px]"
-                  onClick={() =>
-                    persist({ productAnalytics: true, visitorInsights: true })
-                  }
-                >
-                  Accept all
-                </Pressable>
-                <Pressable
-                  size="sm"
-                  variant="orange"
-                  className="ml-auto min-h-[38px]"
-                  onClick={() => persist(draft)}
-                >
-                  Save choices
-                </Pressable>
-              </div>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <Pressable
+                      size="sm"
+                      variant="outline"
+                      className="min-h-[38px]"
+                      onClick={() =>
+                        persist({ productAnalytics: false, visitorInsights: false })
+                      }
+                    >
+                      Decline all
+                    </Pressable>
+                    <Pressable
+                      size="sm"
+                      variant="ink"
+                      className="min-h-[38px]"
+                      onClick={() =>
+                        persist({ productAnalytics: true, visitorInsights: true })
+                      }
+                    >
+                      Accept all
+                    </Pressable>
+                    <Pressable
+                      size="sm"
+                      variant="orange"
+                      className="ml-auto min-h-[38px]"
+                      onClick={() => persist(draft)}
+                    >
+                      Save choices
+                    </Pressable>
+                  </div>
+                </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+      </div>
     </CookieContext.Provider>
   );
 }
